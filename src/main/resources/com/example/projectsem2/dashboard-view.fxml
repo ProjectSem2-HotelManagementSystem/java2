@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectsem2.AdminController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -32,17 +32,17 @@
                               <Label layoutX="24.0" layoutY="11.0" text="Hotel Management System" textFill="WHITE" />
                            </children>
                         </AnchorPane>
-                        <Circle fill="DODGERBLUE" layoutX="1005.0" layoutY="21.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="85.0" />
+                        <Circle fx:id="top_profile" fill="DODGERBLUE" layoutX="1002.0" layoutY="21.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="84.0" />
                         <Label layoutX="1022.0" layoutY="12.0" text="Active" AnchorPane.rightAnchor="43.5" />
                         <Circle fill="#24c756" layoutX="1071.0" layoutY="21.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="24.0" />
                         <Label layoutX="813.0" layoutY="12.0" prefHeight="17.0" prefWidth="62.0" text="Welcome, " AnchorPane.rightAnchor="225.0" />
-                        <Label layoutX="875.0" layoutY="12.0" prefHeight="16.0" prefWidth="120.0" text="Receptionist" AnchorPane.rightAnchor="105.0">
+                        <Label fx:id="top_username" layoutX="875.0" layoutY="13.0" prefHeight="16.0" prefWidth="120.0" text="Receptionist" AnchorPane.rightAnchor="105.0">
                            <font>
                               <Font name="Tahoma Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="575.0" layoutY="12.0" prefHeight="17.0" prefWidth="206.0" text="MM:DD:YYYY" AnchorPane.rightAnchor="319.0" />
-                        <Label layoutX="229.0" layoutY="12.0" prefHeight="17.0" prefWidth="333.0" styleClass="header-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Dashboard" />
+                        <Label fx:id="date_time" alignment="CENTER_RIGHT" layoutX="575.0" layoutY="12.0" prefHeight="17.0" prefWidth="206.0" text="MM:DD:YYYY" AnchorPane.rightAnchor="319.0" />
+                        <Label fx:id="current_form" layoutX="229.0" layoutY="12.0" prefHeight="17.0" prefWidth="333.0" styleClass="header-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Dashboard" />
                      </children>
                      <styleClass>
                         <String fx:value="white-bg" />
@@ -59,7 +59,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="92.0" layoutY="111.0" prefHeight="24.0" prefWidth="90.0" text="1" textFill="WHITE">
+                        <Label fx:id="nav_adminID" layoutX="92.0" layoutY="111.0" prefHeight="24.0" prefWidth="90.0" text="1" textFill="WHITE">
                            <font>
                               <Font name="Tahoma Bold" size="13.0" />
                            </font>
@@ -69,38 +69,38 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="92.0" layoutY="137.0" prefHeight="22.0" prefWidth="97.0" text="admin" textFill="WHITE">
+                        <Label fx:id="nav_username" layoutX="92.0" layoutY="137.0" prefHeight="22.0" prefWidth="97.0" text="admin" textFill="WHITE">
                            <font>
                               <Font name="Tahoma Bold" size="13.0" />
                            </font>
                         </Label>
                         <Line endX="86.5" layoutX="106.0" layoutY="182.0" startX="-88.5" stroke="WHITE" />
                         <Label layoutX="13.0" layoutY="200.0" text="Feature :" textFill="WHITE" />
-                        <Button layoutX="9.0" layoutY="226.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Dashboard">
+                        <Button fx:id="dashboard_btn" layoutX="9.0" layoutY="226.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Dashboard">
                            <graphic>
                               <FontAwesomeIconView glyphName="DASHBOARD" size="1.2em" />
                            </graphic></Button>
-                        <Button layoutX="9.0" layoutY="272.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Available Room">
+                        <Button fx:id="availableRoom_btn" layoutX="9.0" layoutY="272.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Available Room">
                            <graphic>
                               <FontAwesomeIconView glyphName="HOTEL" size="1.2em" text="" />
                            </graphic></Button>
-                        <Button layoutX="10.0" layoutY="316.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Customers">
+                        <Button fx:id="customers_btn" layoutX="10.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Customers">
                            <graphic>
                               <FontAwesomeIconView glyphName="USERS" size="1.2em" />
                            </graphic></Button>
                         <Label layoutX="13.0" layoutY="367.0" text="Profile :" textFill="WHITE" />
-                        <Button layoutX="10.0" layoutY="392.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Profile Setting">
+                        <Button fx:id="profileSetting_btn" layoutX="9.0" layoutY="397.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="190.0" styleClass="nav-btn-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Profile Setting">
                            <graphic>
                               <FontAwesomeIconView glyphName="COGS" size="1.2em" text="" />
                            </graphic></Button>
-                        <FontAwesomeIconView fill="#6fabbf" glyphName="BUILDING" layoutX="79.0" layoutY="515.0" size="4.5em" text="" AnchorPane.bottomAnchor="37.64285659790039" AnchorPane.leftAnchor="79.0" />
+                        <FontAwesomeIconView fill="#6fabbf" glyphName="BUILDING" layoutX="79.0" layoutY="505.0" size="4.5em" text="" AnchorPane.bottomAnchor="47.64285659790039" AnchorPane.leftAnchor="79.0" />
                      </children>
                   </AnchorPane>
                </left>
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="561.0" prefWidth="891.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="dashboard_form" prefHeight="561.0" prefWidth="891.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="172.0" prefWidth="871.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                  <styleClass>
@@ -109,7 +109,7 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane layoutX="28.0" layoutY="10.0" prefHeight="152.0" prefWidth="246.0">
+                                    <AnchorPane fx:id="dashboard_TB" layoutX="28.0" layoutY="10.0" prefHeight="152.0" prefWidth="246.0">
                                        <styleClass>
                                           <String fx:value="bg-color-1" />
                                           <String fx:value="radius" />
@@ -139,7 +139,7 @@
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="95.0" layoutY="43.0" prefHeight="21.0" prefWidth="137.0" text="0 VND" textFill="WHITE">
+                                          <Label fx:id="dashboard_dayIncome" alignment="CENTER_RIGHT" layoutX="95.0" layoutY="43.0" prefHeight="21.0" prefWidth="137.0" text="0 VND" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
@@ -147,7 +147,7 @@
                                           <FontAwesomeIconView fill="WHITE" glyphName="MONEY" layoutX="17.0" layoutY="96.0" size="4.5em" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="595.0" layoutY="10.0" prefHeight="152.0" prefWidth="246.0" AnchorPane.rightAnchor="30.0">
+                                    <AnchorPane fx:id="dashboard_totalIncome" layoutX="595.0" layoutY="10.0" prefHeight="152.0" prefWidth="246.0" AnchorPane.rightAnchor="30.0">
                                        <styleClass>
                                           <String fx:value="bg-color-1" />
                                           <String fx:value="radius" />
@@ -182,7 +182,7 @@
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <AreaChart layoutX="-14.0" prefHeight="182.0" prefWidth="407.0" title="Income's Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <AreaChart fx:id="dashboard_chart_ID" layoutX="-14.0" prefHeight="182.0" prefWidth="407.0" title="Income's Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -199,7 +199,7 @@
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <BarChart layoutX="-46.0" layoutY="-154.0" prefHeight="246.0" prefWidth="454.0" title="Booking's Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <BarChart fx:id="dashboard_chart_BD" layoutX="-46.0" layoutY="-154.0" prefHeight="246.0" prefWidth="454.0" title="Booking's Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -216,12 +216,12 @@
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <TableView layoutX="-1.0" layoutY="41.0" prefHeight="299.0" prefWidth="430.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+                                          <TableView fx:id="dashboard_tableView" layoutX="-1.0" layoutY="41.0" prefHeight="299.0" prefWidth="430.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
                                             <columns>
-                                              <TableColumn prefWidth="76.0" text="ID" />
-                                              <TableColumn prefWidth="120.0" text="Name" />
-                                                <TableColumn prefWidth="132.0" text="Working" />
-                                                <TableColumn prefWidth="100.0" text="Status" />
+                                              <TableColumn fx:id="dashboard_col_ID" prefWidth="76.0" text="ID" />
+                                              <TableColumn fx:id="dashboard_col_name" prefWidth="120.0" text="Name" />
+                                                <TableColumn fx:id="dashboard_col_working" prefWidth="132.0" text="Working" />
+                                                <TableColumn fx:id="dashboard_col_status" prefWidth="100.0" text="Status" />
                                             </columns>
                                           </TableView>
                                           <Label layoutX="14.0" layoutY="14.0" styleClass="header-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Housekeeping Management">
@@ -235,7 +235,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="111.0" layoutY="52.0" prefHeight="561.0" prefWidth="891.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="availableRoom_form" layoutX="111.0" layoutY="52.0" prefHeight="561.0" prefWidth="891.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="535.0" prefWidth="285.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
                                  <styleClass>
@@ -244,19 +244,19 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <TextField layoutX="98.0" layoutY="22.0" prefHeight="31.0" prefWidth="172.0" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" />
+                                    <TextField fx:id="availableRoom_roomNumber" layoutX="98.0" layoutY="22.0" prefHeight="31.0" prefWidth="172.0" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" />
                                     <Label layoutX="38.0" layoutY="29.0" text="Room # :" />
                                     <Label layoutX="19.0" layoutY="71.0" text="Room Type :" AnchorPane.leftAnchor="15.0" />
                                     <Label layoutX="42.0" layoutY="112.0" text="Status :" AnchorPane.leftAnchor="42.0" />
-                                    <ComboBox layoutX="98.0" layoutY="105.0" prefHeight="30.0" prefWidth="172.0" />
-                                    <ComboBox layoutX="98.0" layoutY="65.0" prefHeight="30.0" prefWidth="172.0" />
-                                    <TextField layoutX="98.0" layoutY="149.0" prefHeight="31.0" prefWidth="172.0" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" />
+                                    <ComboBox fx:id="availableRoom_status" layoutX="98.0" layoutY="105.0" onAction="#availableRoomStatus" prefHeight="30.0" prefWidth="172.0" promptText="Choose" />
+                                    <ComboBox fx:id="availableRoom_roomType" layoutX="98.0" layoutY="65.0" onAction="#availableRoomType" prefHeight="30.0" prefWidth="172.0" promptText="Choose" />
+                                    <TextField fx:id="availableRoom_price" layoutX="98.0" layoutY="149.0" prefHeight="31.0" prefWidth="172.0" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" />
                                     <Label layoutX="38.0" layoutY="156.0" text="Price :" AnchorPane.leftAnchor="47.0" />
-                                    <Button layoutX="31.0" layoutY="255.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="add-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Add" />
-                                    <Button layoutX="161.0" layoutY="255.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="update-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Update" textFill="WHITE" />
-                                    <Button layoutX="31.0" layoutY="320.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="clear-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Clear" />
-                                    <Button layoutX="161.0" layoutY="320.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="93.0" styleClass="delete-btn" text="Delete" />
-                                    <Button layoutX="64.0" layoutY="426.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" styleClass="check-in-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Check-In" />
+                                    <Button fx:id="availableRoom_addBtn" layoutX="31.0" layoutY="255.0" mnemonicParsing="false" onAction="#dashboardAdd" prefHeight="39.0" prefWidth="93.0" styleClass="add-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Add" />
+                                    <Button fx:id="availableRoom_updateBtn" layoutX="161.0" layoutY="255.0" mnemonicParsing="false" onAction="#availableRoomUpdate" prefHeight="39.0" prefWidth="93.0" styleClass="update-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Update" textFill="WHITE" />
+                                    <Button fx:id="availableRoom_clearBtn" layoutX="31.0" layoutY="320.0" mnemonicParsing="false" onAction="#availableRoomClear" prefHeight="39.0" prefWidth="93.0" styleClass="clear-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Clear" />
+                                    <Button fx:id="availableRoom_deleteBtn" layoutX="161.0" layoutY="320.0" mnemonicParsing="false" onAction="#availableRoomDelete" prefHeight="39.0" prefWidth="93.0" styleClass="delete-btn" text="Delete" />
+                                    <Button fx:id="availableRoom_checkinBtn" layoutX="64.0" layoutY="426.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" styleClass="check-in-btn" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Check-In" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="535.0" prefWidth="556.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="13.0">
@@ -266,35 +266,35 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <TableView layoutX="16.0" layoutY="57.0" prefHeight="458.0" prefWidth="529.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="57.0">
+                                    <TableView fx:id="availableRoom_tableView" layoutX="16.0" layoutY="57.0" onMouseClicked="#availableRoomSelectData" prefHeight="458.0" prefWidth="529.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="57.0">
                                       <columns>
-                                        <TableColumn prefWidth="121.0" text="Room #" />
-                                          <TableColumn prefWidth="162.0" text="Room Type" />
-                                          <TableColumn prefWidth="117.0" text="Status" />
-                                          <TableColumn prefWidth="127.0" text="Price(VND)" />
+                                        <TableColumn fx:id="availableRoom_col_roomNumber" prefWidth="121.0" text="Room #" />
+                                          <TableColumn fx:id="availableRoom_col_roomType" prefWidth="162.0" text="Room Type" />
+                                          <TableColumn fx:id="availableRoom_col_status" prefWidth="117.0" text="Status" />
+                                          <TableColumn fx:id="availableRoom_col_price" prefWidth="127.0" text="Price(VND)" />
                                       </columns>
                                     </TableView>
-                                    <TextField layoutX="16.0" layoutY="14.0" prefHeight="30.0" prefWidth="297.0" promptText="Search" styleClass="search" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" />
-                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="27.0" layoutY="33.0" />
+                                    <TextField fx:id="availableRoom_search" layoutX="14.0" layoutY="7.0" prefHeight="30.0" prefWidth="297.0" promptText="Search" styleClass="search" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="25.0" layoutY="26.0" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="62.0" layoutY="44.0" prefHeight="561.0" prefWidth="891.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="customers_form" layoutX="62.0" layoutY="44.0" prefHeight="561.0" prefWidth="891.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="11.0" layoutY="14.0" prefHeight="534.0" prefWidth="871.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0">
                                  <children>
-                                    <TextField layoutX="14.0" layoutY="16.0" prefHeight="33.0" prefWidth="315.0" promptText="Search" styleClass="search" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" />
+                                    <TextField fx:id="customers_search" layoutX="14.0" layoutY="16.0" prefHeight="33.0" prefWidth="315.0" promptText="Search" styleClass="search" />
                                     <FontAwesomeIconView glyphName="SEARCH" layoutX="23.0" layoutY="38.0" text="" wrappingWidth="17.071428298950195" />
-                                    <TableView layoutX="11.0" layoutY="55.0" prefHeight="472.0" prefWidth="849.0" styleClass="radius" stylesheets="@../../../com.example.projectsem2.design/dashboard.css">
+                                    <TableView fx:id="customers_tableView" layoutX="11.0" layoutY="55.0" prefHeight="472.0" prefWidth="849.0">
                                       <columns>
-                                        <TableColumn text="Customer #" />
-                                        <TableColumn prefWidth="113.0" text="First Name" />
-                                          <TableColumn prefWidth="123.0" text="Last Name" />
-                                          <TableColumn prefWidth="127.0" text="Phone #" />
-                                          <TableColumn prefWidth="116.0" text="CCCD/Passport" />
-                                          <TableColumn prefWidth="152.0" text="Check-In" />
-                                          <TableColumn prefWidth="137.0" text="Check-Out" />
+                                        <TableColumn fx:id="customers_customerNumber" text="Customer #" />
+                                        <TableColumn fx:id="customers_firstName" prefWidth="113.0" text="First Name" />
+                                          <TableColumn fx:id="customers_lastName" prefWidth="123.0" text="Last Name" />
+                                          <TableColumn fx:id="customers_phoneNumber" prefWidth="127.0" text="Phone #" />
+                                          <TableColumn fx:id="customers_totalPayment" prefWidth="116.0" text="Total Payment" />
+                                          <TableColumn fx:id="customers_checkIn" prefWidth="152.0" text="Check-In" />
+                                          <TableColumn fx:id="customers_checkOut" prefWidth="137.0" text="Check-Out" />
                                       </columns>
                                     </TableView>
                                  </children>
