@@ -134,6 +134,19 @@
     -fx-background-color: #e4657e;
 }
 
+.receipt-btn {
+        -fx-background-color: #408654;
+        -fx-background-radius: 8px;
+        -fx-cursor: hand;
+        -fx-text-fill: #fff;
+        -fx-font-size: 14px;
+        -fx-font-family: "Arial";
+}
+
+.receipt-btn:hover{
+    -fx-background-color: #73da90;
+}
+
 .clear-btn{
     -fx-background-color: #9d6245;
     -fx-background-radius: 8px;

@@ -13,6 +13,8 @@ public class RunApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(RunApplication.class.getResource("dashboard-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
+
+        stage.resizableProperty().setValue(false);
         stage.show();
     }
 

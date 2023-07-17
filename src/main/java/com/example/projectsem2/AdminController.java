@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
@@ -13,12 +14,17 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.Date;
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import org.w3c.dom.events.MouseEvent;
 
 public class AdminController implements Initializable {
     @FXML
@@ -165,6 +171,7 @@ public class AdminController implements Initializable {
     private PreparedStatement prepar;
     private Statement stmt;
     private ResultSet result;
+
 
     public void switchForm(ActionEvent event) {
         if(event.getSource() == dashboard_btn) {
@@ -423,6 +430,20 @@ public class AdminController implements Initializable {
 
     }
 
+    public void availableRoomCheckIn() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("checkIn-view.fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+
+
+            stage.resizableProperty().setValue(false);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public void runTime() {

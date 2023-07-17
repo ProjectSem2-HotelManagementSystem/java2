@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="438.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectsem2.checkInController">
+   <children>
+      <AnchorPane fx:id="checkIn_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="119.0" layoutY="110.0" prefHeight="544.0" prefWidth="438.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="33.0" prefWidth="438.0" styleClass="white-bg" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <FontAwesomeIconView fill="#188ba7" glyphName="KEY" layoutX="14.0" layoutY="25.0" size="1.4em" text="" />
+                        <Label layoutX="41.0" layoutY="10.0" text="Hotel Management">
+                           <font>
+                              <Font name="Arial Narrow" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="152.0" layoutY="10.0" styleClass="header-1" text="Check-In">
+                           <font>
+                              <Font name="Arial Narrow Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <AnchorPane prefHeight="616.0" prefWidth="438.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="12.0" layoutY="13.0" prefHeight="488.0" prefWidth="414.0" style="-fx-background-radius: 10px;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="13.0">
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <children>
+                              <Label layoutX="80.0" layoutY="16.0" text="Check-In">
+                                 <font>
+                                    <Font name="Arial Narrow Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <FontAwesomeIconView fill="#306090" glyphName="KEY" layoutX="21.0" layoutY="47.0" size="3.5em" />
+                              <Label layoutX="238.0" layoutY="22.0" text="Customer #: ">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="customerNumber" layoutX="318.0" layoutY="18.0" prefHeight="23.0" prefWidth="74.0" text="1">
+                                 <font>
+                                    <Font name="Arial Narrow Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="21.0" layoutY="76.0" text="First Name">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="firstName" layoutX="21.0" layoutY="93.0" prefHeight="31.0" prefWidth="157.0" styleClass="textfield" />
+                              <Label layoutX="226.0" layoutY="76.0" text="Last Name">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="lastName" layoutX="226.0" layoutY="93.0" prefHeight="31.0" prefWidth="170.0" styleClass="textfield" />
+                              <Label layoutX="20.0" layoutY="163.0" text="Phone Number">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="phoneNumber" layoutX="20.0" layoutY="180.0" prefHeight="31.0" prefWidth="157.0" styleClass="textfield" />
+                              <Label layoutX="225.0" layoutY="163.0" text="CCCD/Passport">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="idCard" layoutX="225.0" layoutY="180.0" prefHeight="31.0" prefWidth="170.0" styleClass="textfield" />
+                              <Label layoutX="20.0" layoutY="330.0" text="Check-in Date">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="225.0" layoutY="330.0" text="Check-out Date">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="checkIn_date" layoutX="17.0" layoutY="354.0" prefHeight="34.0" prefWidth="171.0" promptText="DD/MM/YYYY" />
+                              <DatePicker fx:id="checkOut_date" layoutX="224.0" layoutY="354.0" onAction="#displayTotal" prefHeight="34.0" prefWidth="176.0" promptText="DD/MM/YYYY" />
+                              <Button layoutX="90.0" layoutY="508.0" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="91.0" styleClass="clear-btn" text="Reset" />
+                              <Button layoutX="234.0" layoutY="508.0" mnemonicParsing="false" onAction="#customerCheckIn" prefHeight="40.0" prefWidth="91.0" styleClass="check-in-btn" text="Check-in" />
+                              <Label layoutX="238.0" layoutY="449.0" text="Total:">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="total" layoutX="292.0" layoutY="448.0" text="0 VND">
+                                 <font>
+                                    <Font name="Arial Narrow Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="200.0" layoutY="411.0" text="Total Days:">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalDays" layoutX="292.0" layoutY="410.0" text="---">
+                                 <font>
+                                    <Font name="Arial Narrow Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="22.0" layoutY="240.0" text="Room Type">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="227.0" layoutY="240.0" text="Room #">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="roomType" layoutX="15.0" layoutY="270.0" onAction="#roomTypeList" prefHeight="32.0" prefWidth="173.0" promptText="Choose" />
+                              <ComboBox fx:id="roomNumber" layoutX="226.0" layoutY="270.0" onAction="#roomNumberList" prefHeight="32.0" prefWidth="173.0" promptText="Choose" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
