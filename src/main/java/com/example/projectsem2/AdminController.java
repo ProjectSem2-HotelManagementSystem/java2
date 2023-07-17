@@ -1,8 +1,12 @@
 package com.example.projectsem2;
 
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,31 +88,31 @@ public class AdminController implements Initializable {
     private Button customers_btn;
 
     @FXML
-    private TableColumn<?, ?> customers_checkIn;
+    private TableColumn<customerData, String> customers_checkIn;
 
     @FXML
-    private TableColumn<?, ?> customers_checkOut;
+    private TableColumn<customerData, String> customers_checkOut;
 
     @FXML
-    private TableColumn<?, ?> customers_customerNumber;
+    private TableColumn<customerData, String> customers_customerNumber;
 
     @FXML
-    private TableColumn<?, ?> customers_firstName;
+    private TableColumn<customerData, String> customers_firstName;
 
     @FXML
     private AnchorPane customers_form;
 
     @FXML
-    private TableColumn<?, ?> customers_lastName;
+    private TableColumn<customerData, String> customers_lastName;
 
     @FXML
-    private TableColumn<?, ?> customers_phoneNumber;
+    private TableColumn<customerData, String> customers_phoneNumber;
 
     @FXML
     private TextField customers_search;
 
     @FXML
-    private TableView<?> customers_tableView;
+    private TableView<customerData> customers_tableView;
 
     @FXML
     private TableColumn<?, ?> customers_totalPayment;
@@ -182,10 +186,14 @@ public class AdminController implements Initializable {
             dashboard_form.setVisible(false);
             availableRoom_form.setVisible(true);
             customers_form.setVisible(false);
+
+            availableRoomShowData();
         } else if (event.getSource() == customers_btn) {
             dashboard_form.setVisible(false);
             availableRoom_form.setVisible(false);
             customers_form.setVisible(true);
+
+            customerShowData();
         }
 
     }
@@ -390,6 +398,90 @@ public class AdminController implements Initializable {
         }
     }
 
+    public ObservableList<customerData> customerListData () {
+        ObservableList<customerData> listData = FXCollections.observableArrayList();
+
+        String sql = "SELECT * FROM customer";
+
+        conn = Database.ConnectDB();
+        try{
+            prepar = conn.prepareStatement(sql);
+            result = prepar.executeQuery();
+
+            customerData custD;
+
+            while (result.next()) {
+                custD = new customerData(result.getInt("customer_id")
+                        ,result.getString("firstName")
+                        ,result.getString("lastName")
+                        ,result.getString("phoneNumber")
+                        ,result.getDate("checkIn")
+                        ,result.getDate("checkOut")
+                        ,result.getInt("total")
+                        );
+                listData.add(custD);
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listData;
+    }
+
+    private ObservableList<customerData> listCustomerData;
+
+    public void customerShowData() {
+
+        listCustomerData = customerListData();
+
+        customers_customerNumber.setCellValueFactory(new PropertyValueFactory<>("customerNum"));
+        customers_firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        customers_lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        customers_phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        customers_checkIn.setCellValueFactory(new PropertyValueFactory<>("checkIn"));
+        customers_checkOut.setCellValueFactory(new PropertyValueFactory<>("checkOut"));
+        customers_totalPayment.setCellValueFactory(new PropertyValueFactory<>("total"));
+
+        customers_tableView.setItems(listCustomerData);
+    }
+// SEARCH THE DATA ON TABLEVIEW FOR CUSTOMER
+    public void searchCustomer() {
+
+        FilteredList<customerData> filter = new FilteredList<>(listCustomerData, e -> true);
+
+        customers_search.textProperty().addListener((Observable,oldValue,newValue) -> {
+
+            filter.setPredicate(predicateCustomer ->{
+                if (newValue == null && newValue.isEmpty()) {
+                    return true;
+                }
+
+                String searchKey = newValue.toLowerCase();
+
+                if (predicateCustomer.getCustomerNum().toString().contains(searchKey)) {
+                    return true;
+                }else if (predicateCustomer.getFirstName().toLowerCase().contains(searchKey)){
+                    return true;
+                } else if (predicateCustomer.getLastName().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (predicateCustomer.getPhoneNumber().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (predicateCustomer.getCheckIn().toString().contains(searchKey)){
+                    return true;
+                } else if (predicateCustomer.getCheckOut().toString().contains(searchKey)) {
+                    return true;
+                } else if (predicateCustomer.getTotal().toString().contains(searchKey)) {
+                    return true;
+                }else {
+                    return false;
+                }
+            });
+        });
+
+        SortedList<customerData> sortList = new SortedList<>(filter);
+        sortList.comparatorProperty().bind(customers_tableView.comparatorProperty());
+        customers_tableView.setItems(sortList);
+    }
 
     private String type[] =
             {"Single Room", "Double Room ","Triple Room", "Quad Room", "King Room","Queen Room","Penthouse Room"};
@@ -471,6 +563,10 @@ public class AdminController implements Initializable {
         availableRoomType();
         availableRoomStatus();
         runTime();
+//        TO SHOW THE DATA ON TABLEVIEW
         availableRoomShowData();
+//        TO SHOW THE DATA ON TABLEVIEW
+        customerShowData();
+        searchCustomer();
     }
 }

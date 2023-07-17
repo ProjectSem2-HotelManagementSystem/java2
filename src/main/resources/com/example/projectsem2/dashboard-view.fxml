@@ -100,7 +100,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="dashboard_form" prefHeight="561.0" prefWidth="891.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="dashboard_form" prefHeight="561.0" prefWidth="891.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="172.0" prefWidth="871.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                  <styleClass>
@@ -116,7 +116,7 @@
                                        </styleClass>
                                        <children>
                                           <FontAwesomeIconView fill="WHITE" glyphName="CHECK" layoutX="21.0" layoutY="97.0" size="4.5em" text="" />
-                                          <Label layoutX="80.0" layoutY="108.0" text="TODAY'S BOOK" textFill="WHITE">
+                                          <Label layoutX="80.0" layoutY="105.0" text="TODAY'S BOOK" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
@@ -134,7 +134,7 @@
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <Label layoutX="69.0" layoutY="104.0" text="TODAY'S INCOME" textFill="WHITE">
+                                          <Label layoutX="77.0" layoutY="108.0" text="TODAY'S INCOME" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
@@ -144,7 +144,7 @@
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <FontAwesomeIconView fill="WHITE" glyphName="MONEY" layoutX="17.0" layoutY="96.0" size="4.5em" />
+                                          <FontAwesomeIconView fill="WHITE" glyphName="MONEY" layoutX="14.0" layoutY="99.0" size="4.5em" text="" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane fx:id="dashboard_totalIncome" layoutX="595.0" layoutY="10.0" prefHeight="152.0" prefWidth="246.0" AnchorPane.rightAnchor="30.0">
@@ -153,7 +153,7 @@
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <Label layoutX="80.0" layoutY="108.0" text="TOTAL INCOME" textFill="WHITE">
+                                          <Label layoutX="95.0" layoutY="104.0" text="TOTAL INCOME" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
@@ -163,7 +163,7 @@
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" layoutX="27.0" layoutY="99.0" size="4.5em" />
+                                          <FontAwesomeIconView fill="WHITE" glyphName="DOLLAR" layoutX="28.0" layoutY="96.0" size="4.5em" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -235,7 +235,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="availableRoom_form" layoutX="111.0" layoutY="52.0" prefHeight="561.0" prefWidth="891.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="availableRoom_form" layoutX="111.0" layoutY="52.0" prefHeight="561.0" prefWidth="891.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane prefHeight="535.0" prefWidth="285.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
                                  <styleClass>
@@ -286,15 +286,15 @@
                                  <children>
                                     <TextField fx:id="customers_search" layoutX="14.0" layoutY="16.0" prefHeight="33.0" prefWidth="315.0" promptText="Search" styleClass="search" />
                                     <FontAwesomeIconView glyphName="SEARCH" layoutX="23.0" layoutY="38.0" text="" wrappingWidth="17.071428298950195" />
-                                    <TableView fx:id="customers_tableView" layoutX="11.0" layoutY="55.0" prefHeight="472.0" prefWidth="849.0">
+                                    <TableView fx:id="customers_tableView" layoutX="12.0" layoutY="56.0" onKeyTyped="#searchCustomer" prefHeight="472.0" prefWidth="849.0">
                                       <columns>
                                         <TableColumn fx:id="customers_customerNumber" text="Customer #" />
                                         <TableColumn fx:id="customers_firstName" prefWidth="113.0" text="First Name" />
                                           <TableColumn fx:id="customers_lastName" prefWidth="123.0" text="Last Name" />
                                           <TableColumn fx:id="customers_phoneNumber" prefWidth="127.0" text="Phone #" />
-                                          <TableColumn fx:id="customers_totalPayment" prefWidth="116.0" text="Total Payment" />
-                                          <TableColumn fx:id="customers_checkIn" prefWidth="152.0" text="Check-In" />
-                                          <TableColumn fx:id="customers_checkOut" prefWidth="137.0" text="Check-Out" />
+                                          <TableColumn fx:id="customers_checkIn" prefWidth="164.0" text="Check-In" />
+                                          <TableColumn fx:id="customers_checkOut" prefWidth="143.0" text="Check-Out" />
+                                          <TableColumn fx:id="customers_totalPayment" prefWidth="98.0" text="Total Payment" />
                                       </columns>
                                     </TableView>
                                  </children>

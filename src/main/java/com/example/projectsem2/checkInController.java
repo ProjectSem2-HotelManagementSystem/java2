@@ -58,8 +58,8 @@ public class checkInController implements Initializable {
     private Statement stmt;
 
     public void customerCheckIn() {
-        String insertCustomerData = "INSERT INTO customer (customer_id,roomType,roomNumber,firstName,lastName,phoneNumber,idCard,checkIn,checkOut)"
-                + "VALUES(?::integer,?,?,?,?,?,?,?::date,?::date)";
+        String insertCustomerData = "INSERT INTO customer (customer_id,roomType,roomNumber,firstName,lastName,phoneNumber,idCard,checkIn,checkOut,total)"
+                + "VALUES(?::integer,?,?,?,?,?,?,?::date,?::date,?::float)";
 
         conn = Database.ConnectDB();
 
@@ -91,7 +91,7 @@ public class checkInController implements Initializable {
                 alert.setContentText("Are you sure?");
 
                 Optional<ButtonType> option = alert.showAndWait();
-
+                String totalC = String.valueOf(totalP);
                     // INSERT CUSTOMER INFORMATION DATABASE
                 if (option.get().equals(ButtonType.OK)) {
                     prepar = conn.prepareStatement(insertCustomerData);
@@ -104,12 +104,12 @@ public class checkInController implements Initializable {
                     prepar.setString(7,idCard1);
                     prepar.setString(8,checkDate);
                     prepar.setString(9,checkOutDate);
+                    prepar.setString(10,totalC);
 
                     prepar.executeUpdate();
 
                     //INSERT CUSTOMER RECEIPT DATABASE
                     String date = String.valueOf(checkIn_date.getValue());
-                    String totalC = String.valueOf(totalP);
                     String customerN = customerNumber.getText();
 
                     String customerReceipt = "INSERT INTO customer_receipt(customer_num,total,customer_date)"
