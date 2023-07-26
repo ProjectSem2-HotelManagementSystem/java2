@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectsem2.LoginRegisterController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane fx:id="login_form" prefHeight="646.0" prefWidth="393.0" styleClass="white-bg" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+               <children>
+                  <FontAwesomeIconView glyphName="USER" layoutX="177.0" layoutY="98.0" selectionFill="#b98b8b" size="5em">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="0.2705882489681244" green="0.40784314274787903" blue="0.8627451062202454" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.6901960968971252" green="0.4156862795352936" blue="0.7019608020782471" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+                  <Label layoutX="126.0" layoutY="130.0" text="Sign In Account">
+                     <font>
+                        <Font name="Kannada MN" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="login_username" layoutX="59.0" layoutY="191.0" prefHeight="40.0" prefWidth="285.0" promptText="Username" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="login_showPassword" layoutX="58.0" layoutY="250.0" prefHeight="40.0" prefWidth="285.0" promptText="Password" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="14.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="login_password" layoutX="58.0" layoutY="250.0" prefHeight="40.0" prefWidth="285.0" promptText="Password" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="14.0" />
+                     </font></PasswordField>
+                  <CheckBox fx:id="login_selectShowPassword" layoutX="67.0" layoutY="305.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font>
+                  </CheckBox>
+                  <Button fx:id="login_btn" layoutX="59.0" layoutY="368.0" mnemonicParsing="false" onAction="#login" prefHeight="48.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Login" />
+                  <Label layoutX="137.0" layoutY="526.0" text="Register Account">
+                     <font>
+                        <Font name="Kannada MN" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="login_createAccount" layoutX="54.0" layoutY="561.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Create Account" />
+                  <Hyperlink fx:id="login_forgotPassword" layoutX="229.0" layoutY="302.0" onAction="#switchForm" text="Forgot Password?" />
+                  <FontAwesomeIconView glyphName="USER" layoutX="30.0" layoutY="219.0" size="20" />
+                  <FontAwesomeIconView glyphName="LOCK" layoutX="30.0" layoutY="280.0" size="20" text="" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER_PLUS" layoutX="120.0" layoutY="582.0" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="SIGN_IN" layoutX="159.0" layoutY="399.0" size="20" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="signup_form" prefHeight="646.0" prefWidth="393.0" styleClass="white-bg" stylesheets="@../../../com.example.projectsem2.design/Styles.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <FontAwesomeIconView glyphName="USER_PLUS" layoutX="175.0" layoutY="99.0" selectionFill="#b98b8b" size="5em">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="0.2705882489681244" green="0.40784314274787903" blue="0.8627451062202454" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.6901960968971252" green="0.4156862795352936" blue="0.7019608020782471" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+                  <Label layoutX="129.0" layoutY="120.0" text="Sign Up Account">
+                     <font>
+                        <Font name="Kannada MN" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="signup_email" layoutX="60.0" layoutY="161.0" prefHeight="40.0" prefWidth="285.0" promptText="Email Address" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="13.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="signup_username" layoutX="60.0" layoutY="209.0" prefHeight="40.0" prefWidth="285.0" promptText="Username" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="13.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="signup_password" layoutX="59.0" layoutY="256.0" prefHeight="40.0" prefWidth="285.0" promptText="Password" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css" />
+                  <Button fx:signup_btn" layoutX="59.0" layoutY="468.0" mnemonicParsing="false" onAction="#register" prefHeight="48.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Sign Up">
+                     <font>id="
+                        <Font name="Kannada MN" size="27.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="144.0" layoutY="561.0" text="Sign In Account">
+                     <font>
+                        <Font name="Kannada MN" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="signup_loginAccount" layoutX="59.0" layoutY="588.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Login Account" />
+                  <PasswordField fx:id="signup_cPassword" layoutX="59.0" layoutY="303.0" prefHeight="40.0" prefWidth="285.0" promptText="Confirm Password" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css" />
+                  <ComboBox fx:id="signup_selectQuestion" layoutX="59.0" layoutY="355.0" onShowing="#questions" prefHeight="40.0" prefWidth="285.0" promptText="Select Question" />
+                  <TextField fx:id="signup_answer" layoutX="60.0" layoutY="407.0" prefHeight="40.0" prefWidth="285.0" promptText="Answer" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="13.0" />
+                     </font>
+                  </TextField>
+                  <FontAwesomeIconView glyphName="ENVELOPE" layoutX="30.0" layoutY="188.0" size="20" />
+                  <FontAwesomeIconView glyphName="USER" layoutX="32.0" layoutY="236.0" size="20" />
+                  <FontAwesomeIconView glyphName="LOCK" layoutX="33.0" layoutY="284.0" size="21" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="SIGN_IN" layoutX="117.0" layoutY="611.0" size="18" wrappingWidth="1.0" />
+                  <FontAwesomeIconView glyphName="COMMENTING" layoutX="29.0" layoutY="434.0" size="20" />
+                  <FontAwesomeIconView glyphName="LOCK" layoutX="33.0" layoutY="330.0" size="21" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="forgot_form" prefHeight="646.0" prefWidth="393.0" styleClass="white-bg" stylesheets="@../../../com.example.projectsem2.design/Styles.css" visible="false">
+               <children>
+                  <FontAwesomeIconView glyphName="UNLOCK_ALT" layoutX="175.0" layoutY="91.0" selectionFill="#b98b8b" size="5em">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="0.2705882489681244" green="0.40784314274787903" blue="0.8627451062202454" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.6901960968971252" green="0.4156862795352936" blue="0.7019608020782471" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+                  <Label layoutX="94.0" layoutY="108.0" text="FORGOT PASSWORD">
+                     <font>
+                        <Font name="Kannada MN" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="forgot_username" layoutX="58.0" layoutY="160.0" prefHeight="40.0" prefWidth="285.0" promptText="Username" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="13.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="forgot_prooceedBtn" layoutX="58.0" layoutY="331.0" mnemonicParsing="false" onAction="#forgotPassword" prefHeight="40.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Proceed">
+                     <font>
+                        <Font name="Kannada MN" size="27.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="forgot_backBtn" layoutX="58.0" layoutY="561.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Back" />
+                  <ComboBox fx:id="forgot_selectQuestion" layoutX="58.0" layoutY="210.0" onShowing="#forgotListQuestion" prefHeight="40.0" prefWidth="285.0" promptText="Select Question" />
+                  <TextField fx:id="forgot_answer" layoutX="58.0" layoutY="262.0" prefHeight="40.0" prefWidth="285.0" promptText="Answer" styleClass="textfield" stylesheets="@../../../com.example.projectsem2.design/Styles.css">
+                     <font>
+                        <Font name="Kannada MN" size="13.0" />
+                     </font>
+                  </TextField>
+                  <FontAwesomeIconView fill="WHITE" glyphName="ARROW_RIGHT" layoutX="236.0" layoutY="357.0" size="18" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="UNDO" layoutX="162.0" layoutY="582.0" />
+                  <FontAwesomeIconView glyphName="USER" layoutX="33.0" layoutY="187.0" size="20" />
+                  <FontAwesomeIconView glyphName="COMMENTING" layoutX="30.0" layoutY="289.0" size="20" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="changePass_form" prefHeight="646.0" prefWidth="393.0" styleClass="white-bg" stylesheets="@../../../com.example.projectsem2.design/Styles.css" visible="false">
+               <children>
+                  <FontAwesomeIconView glyphName="UNLOCK_ALT" layoutX="175.0" layoutY="91.0" selectionFill="#b98b8b" size="5em">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="0.2705882489681244" green="0.40784314274787903" blue="0.8627451062202454" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.6901960968971252" green="0.4156862795352936" blue="0.7019608020782471" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </FontAwesomeIconView>
+                  <Label layoutX="94.0" layoutY="108.0" text="FORGET PASSWORD">
+                     <font>
+                        <Font name="Kannada MN" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="changePass_proceedBtn" layoutX="58.0" layoutY="303.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="48.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Change Password">
+                     <font>
+                        <Font name="Kannada MN" size="27.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="changePass_backBtn" layoutX="54.0" layoutY="561.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="285.0" styleClass="btn" stylesheets="@../../../com.example.projectsem2.design/Styles.css" text="Back" />
+                  <PasswordField fx:id="changePass_Password" layoutX="58.0" layoutY="175.0" prefHeight="40.0" prefWidth="285.0" promptText="Password" />
+                  <PasswordField fx:id="changePass_cPassword" layoutX="58.0" layoutY="225.0" prefHeight="40.0" prefWidth="285.0" promptText="Confirm Password" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="ROTATE_LEFT" layoutX="157.0" layoutY="583.0" size="14" text="" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

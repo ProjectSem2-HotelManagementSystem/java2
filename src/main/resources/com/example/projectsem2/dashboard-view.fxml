@@ -3,7 +3,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
 <?import javafx.scene.chart.AreaChart?>
-<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
@@ -121,7 +120,7 @@
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="95.0" layoutY="43.0" prefHeight="21.0" prefWidth="137.0" text="0" textFill="WHITE">
+                                          <Label fx:id="dashboard_dayBook" alignment="CENTER_RIGHT" layoutX="95.0" layoutY="43.0" prefHeight="21.0" prefWidth="137.0" text="0" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
@@ -147,7 +146,7 @@
                                           <FontAwesomeIconView fill="WHITE" glyphName="MONEY" layoutX="14.0" layoutY="99.0" size="4.5em" text="" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="dashboard_totalIncome" layoutX="595.0" layoutY="10.0" prefHeight="152.0" prefWidth="246.0" AnchorPane.rightAnchor="30.0">
+                                    <AnchorPane layoutX="595.0" layoutY="10.0" prefHeight="152.0" prefWidth="246.0" AnchorPane.rightAnchor="30.0">
                                        <styleClass>
                                           <String fx:value="bg-color-1" />
                                           <String fx:value="radius" />
@@ -158,7 +157,7 @@
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER_RIGHT" layoutX="95.0" layoutY="43.0" prefHeight="21.0" prefWidth="137.0" text="0 VND" textFill="WHITE">
+                                          <Label fx:id="dashboard_totalIncome" alignment="CENTER_RIGHT" layoutX="95.0" layoutY="43.0" prefHeight="21.0" prefWidth="137.0" text="0 VND" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
@@ -175,14 +174,14 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane layoutX="450.0" layoutY="8.0" prefHeight="182.0" prefWidth="407.0" AnchorPane.bottomAnchor="167.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="8.0">
+                                    <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="340.0" prefWidth="844.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="9.0">
                                        <styleClass>
                                           <String fx:value="white-bg" />
                                           <String fx:value="shadow" />
                                           <String fx:value="radius" />
                                        </styleClass>
                                        <children>
-                                          <AreaChart fx:id="dashboard_chart_ID" layoutX="-14.0" prefHeight="182.0" prefWidth="407.0" title="Income's Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <AreaChart fx:id="dashboard_chart_ID" layoutY="22.0" prefHeight="327.0" prefWidth="844.0" title="Income's Data" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="22.0">
                                             <xAxis>
                                               <CategoryAxis side="BOTTOM" />
                                             </xAxis>
@@ -190,41 +189,7 @@
                                               <NumberAxis side="LEFT" />
                                             </yAxis>
                                           </AreaChart>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="450.0" layoutY="206.0" prefHeight="143.0" prefWidth="407.0" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="14.0">
-                                       <styleClass>
-                                          <String fx:value="white-bg" />
-                                          <String fx:value="shadow" />
-                                          <String fx:value="radius" />
-                                       </styleClass>
-                                       <children>
-                                          <BarChart fx:id="dashboard_chart_BD" layoutX="-46.0" layoutY="-154.0" prefHeight="246.0" prefWidth="454.0" title="Booking's Data" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <xAxis>
-                                              <CategoryAxis side="BOTTOM" />
-                                            </xAxis>
-                                            <yAxis>
-                                              <NumberAxis side="LEFT" />
-                                            </yAxis>
-                                          </BarChart>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="340.0" prefWidth="429.0" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="428.0" AnchorPane.topAnchor="9.0">
-                                       <styleClass>
-                                          <String fx:value="white-bg" />
-                                          <String fx:value="shadow" />
-                                          <String fx:value="radius" />
-                                       </styleClass>
-                                       <children>
-                                          <TableView fx:id="dashboard_tableView" layoutX="-1.0" layoutY="41.0" prefHeight="299.0" prefWidth="430.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
-                                            <columns>
-                                              <TableColumn fx:id="dashboard_col_ID" prefWidth="76.0" text="ID" />
-                                              <TableColumn fx:id="dashboard_col_name" prefWidth="120.0" text="Name" />
-                                                <TableColumn fx:id="dashboard_col_working" prefWidth="132.0" text="Working" />
-                                                <TableColumn fx:id="dashboard_col_status" prefWidth="100.0" text="Status" />
-                                            </columns>
-                                          </TableView>
-                                          <Label layoutX="14.0" layoutY="14.0" styleClass="header-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Housekeeping Management">
+                                          <Label layoutX="14.0" layoutY="14.0" styleClass="header-1" stylesheets="@../../../com.example.projectsem2.design/dashboard.css" text="Statistic">
                                              <font>
                                                 <Font name="Arial Bold" size="13.0" />
                                              </font>
@@ -266,7 +231,7 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                                  <children>
-                                    <TableView fx:id="availableRoom_tableView" layoutX="16.0" layoutY="57.0" onMouseClicked="#availableRoomSelectData" prefHeight="458.0" prefWidth="529.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="57.0">
+                                    <TableView fx:id="availableRoom_tableView" layoutX="16.0" layoutY="57.0" onKeyTyped="#availableRoomSearch" onMouseClicked="#availableRoomSelectData" prefHeight="458.0" prefWidth="529.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="57.0">
                                       <columns>
                                         <TableColumn fx:id="availableRoom_col_roomNumber" prefWidth="121.0" text="Room #" />
                                           <TableColumn fx:id="availableRoom_col_roomType" prefWidth="162.0" text="Room Type" />

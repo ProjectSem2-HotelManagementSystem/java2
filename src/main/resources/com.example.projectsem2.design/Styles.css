@@ -1,0 +1,32 @@
+/* Login Form CSS */
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.btn{
+    -fx-background-color: linear-gradient(to bottom right,#4568DC,#B06AB3);
+    -fx-cursor: hand;
+    -fx-background-radius:50px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 16px;
+    -fx-font-family: Arial;
+}
+.btn:hover{
+    -fx-opacity: 0.7;
+}
+
+.textfield{
+    -fx-border-color: #000;
+    -fx-border-width: .5px;
+    -fx-border-radius: 6px;
+}
+.textfield:focused{
+    -fx-border-color: linear-gradient(to bottom right,#4568DC,#B06AB3);
+    -fx-border-width: .8px;
+}
+
+.label{
+    -fx-text-fill: linear-gradient(to bottom right,#4568DC,#B06AB3);
+}
+
+

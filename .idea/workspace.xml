@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05b96f58-cf8d-4da2-b758-6af5170bce29" name="Changes" comment="Check-In Available Room">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/customerData.java" afterDir="false" />
+    <list default="true" id="05b96f58-cf8d-4da2-b758-6af5170bce29" name="Changes" comment="Search customer and show the date on tableview">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/LoginRegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com.example.projectsem2.design/Styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/projectsem2/LoginRegisterForm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlertMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectionString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DbSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DbSetEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IDbSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginAndRegisterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginAndRegister-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginAndRegister.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/checkInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/checkInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/RunApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projectsem2/RunApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/projectsem2/dashboard-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/projectsem2/dashboard-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +56,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-base/20/javafx-base-20-sources.jar!/com/sun/javafx/reflect/MethodUtil.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
   <component name="ProjectId" id="2SQciMNTsKBPjP9AhuzrX3BdiBo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -56,13 +70,53 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/baoduy/.m2/repository/org/openjfx/javafx-fxml/20.0.1/javafx-fxml-20.0.1-mac.jar",
+    "app.teamhub.Repo-options": "{\"forks\":true,\"offline\":true}",
+    "app.teamhub.selectedTeam": "github.com/ProjectSem2-HotelManagementSystem/java2",
+    "app.teamhub.trackedBranches": "-1f7jhqd/master",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/baoduy/IdeaProjects/ProjectSem2/src/main/resources/com.example.projectsem2.design",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.46551725",
-    "settings.editor.selected.configurable": "cn.yiiguxing.plugin.translate"
+    "settings.editor.selected.configurable": "gitlive.settings"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com.example.projectsem2.design" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/projectsem2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/projectsem2" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/projectsem2" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com.example.projectsem2.design" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.projectsem2" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="com.example.projectsem2 in ProjectSem2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectSem2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.projectsem2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.projectsem2" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.example.projectsem2 in ProjectSem2" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -116,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689622984445</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Search customer and show the date on tableview">
+      <option name="closed" value="true" />
+      <created>1689629878188</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689629878188</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,7 +197,8 @@
     <MESSAGE value="Admin Dashboard Commit" />
     <MESSAGE value="CRUD Available Room and show table view data Commit" />
     <MESSAGE value="Check-In Available Room" />
-    <option name="LAST_COMMIT_MESSAGE" value="Check-In Available Room" />
+    <MESSAGE value="Search customer and show the date on tableview" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search customer and show the date on tableview" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -124,7 +125,7 @@ public class AdminController implements Initializable {
     private Button dashboard_btn;
 
     @FXML
-    private BarChart<?, ?> dashboard_chart_BD;
+    private BarChart<String, Integer> dashboard_chart_BD;
 
     @FXML
     private AreaChart<?, ?> dashboard_chart_ID;
@@ -145,13 +146,17 @@ public class AdminController implements Initializable {
     private Label dashboard_dayIncome;
 
     @FXML
+    private Label dashboard_dayBook;
+
+    @FXML
+    private Label dashboard_totalIncome;
+
+    @FXML
     private AnchorPane dashboard_form;
 
     @FXML
     private TableView<?> dashboard_tableView;
 
-    @FXML
-    private AnchorPane dashboard_totalIncome;
 
     @FXML
     private Label date_time;
@@ -176,24 +181,140 @@ public class AdminController implements Initializable {
     private Statement stmt;
     private ResultSet result;
 
+    private int count = 0;
+
+    public void dashboardIncomeChart() {
+        dashboard_chart_ID.getData().clear();
+
+        String sql =
+                "SELECT customer_date, SUM(total) AS total FROM customer_receipt GROUP BY customer_date ORDER BY customer_date ASC LIMIT 8";
+        conn = Database.ConnectDB();
+
+        XYChart.Series chart = new XYChart.Series<>();
+        chart.setName(null);
+        try{
+            prepar = conn.prepareStatement(sql);
+            result = prepar.executeQuery();
+
+            while (result.next()) {
+                chart.getData().add(new XYChart.Data<>(result.getString("customer_date"), result.getInt("total")));
+            }
+            dashboard_chart_ID.getData().add(chart);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void dashboardCountBookToday() {
+        Date date = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
+        String sql = "SELECT COUNT(*) AS id FROM customer WHERE checkIn = '"+sqlDate+"'";
+
+        conn = Database.ConnectDB();
+
+        count = 0;
+
+        try{
+
+            prepar = conn.prepareStatement(sql);
+            result = prepar.executeQuery();
+
+            while(result.next()){
+                count = result.getInt("id");
+                dashboard_dayBook.setText(String.valueOf(count));
+            }
+            System.out.println(count);
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayCountBookToday() {
+        dashboardCountBookToday();
+    }
+
+    private int sumToday = 0;
+
+    public void dashboardSumIncomeToday() {
+        Date date = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
+        String sql = "SELECT SUM(total) AS total FROM customer WHERE checkIn ='"+sqlDate+"'";
+
+        conn = Database.ConnectDB();
+
+
+        try {
+            prepar = conn.prepareStatement(sql);
+            result = prepar.executeQuery();
+            while (result.next()) {
+                sumToday = result.getInt("total");
+                dashboard_dayIncome.setText(String.valueOf(sumToday+" VND"));
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displaySumIncomeToday() {
+        dashboardSumIncomeToday();
+    }
+
+    private int overall;
+
+    public void dashboardSumTotalIncome() {
+        String sql = "SELECT SUM(total) AS total FROM customer_receipt";
+
+        conn = Database.ConnectDB();
+
+        try{
+            prepar = conn.prepareStatement(sql);
+            result = prepar.executeQuery();
+
+            while (result.next()) {
+                overall = result.getInt("total");
+                dashboard_totalIncome.setText(String.valueOf(overall + " VND"));
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void displaySumTotalIncome() {
+        dashboardSumTotalIncome();
+    }
 
     public void switchForm(ActionEvent event) {
         if(event.getSource() == dashboard_btn) {
             dashboard_form.setVisible(true);
             availableRoom_form.setVisible(false);
             customers_form.setVisible(false);
+
+            displayCountBookToday();
+            displaySumIncomeToday();
+            displaySumTotalIncome();
+            dashboardIncomeChart();
         } else if (event.getSource() == availableRoom_btn) {
             dashboard_form.setVisible(false);
             availableRoom_form.setVisible(true);
             customers_form.setVisible(false);
 
             availableRoomShowData();
+            availableRoomSearch();
         } else if (event.getSource() == customers_btn) {
             dashboard_form.setVisible(false);
             availableRoom_form.setVisible(false);
             customers_form.setVisible(true);
 
             customerShowData();
+            searchCustomer();
         }
 
     }
@@ -234,6 +355,35 @@ public class AdminController implements Initializable {
         availableRoom_col_price.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         availableRoom_tableView.setItems(roomDataList);
+    }
+// SEARCH THE DATA ON TABLEVIEW AVAILABLE ROOM FROM
+    public void availableRoomSearch() {
+        FilteredList<RoomData> filter = new FilteredList<>(roomDataList, e -> true);
+
+        availableRoom_search.textProperty().addListener((Observable,oldValue,newValue) -> {
+            filter.setPredicate(predicateRoom -> {
+                if (newValue == null && newValue.isEmpty()) {
+                    return true;
+                }
+                String searchKey = newValue.toLowerCase();
+
+                if (predicateRoom.getRoomNumber().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (predicateRoom.getRoomType().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (predicateRoom.getStatus().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (predicateRoom.getPrice().toString().contains(searchKey)) {
+                    return true;
+                }else {
+                    return false;
+                }
+            });
+        });
+
+        SortedList<RoomData> sortList = new SortedList<>(filter);
+        sortList.comparatorProperty().bind(availableRoom_tableView.comparatorProperty());
+        availableRoom_tableView.setItems(sortList);
     }
 
 //    Available Room
@@ -562,11 +712,16 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         availableRoomType();
         availableRoomStatus();
+        displayCountBookToday();
+        displaySumIncomeToday();
+        displaySumTotalIncome();
+        dashboardIncomeChart();
         runTime();
 //        TO SHOW THE DATA ON TABLEVIEW
         availableRoomShowData();
 //        TO SHOW THE DATA ON TABLEVIEW
         customerShowData();
+        availableRoomSearch();
         searchCustomer();
     }
 }
